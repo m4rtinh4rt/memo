@@ -1,0 +1,24 @@
+TARGET := jour_lendemain
+CC := gcc
+CFLAG := -Wall -Wextra -ansi -pedantic -Werror -pie -fPIE -DFORTIFY_SOURCE=2 -O1 -fstack-protector-all -Wformat=2 -Wformat-security -Werror=format-security -Wl,-z,relro -Wl,-z,now -I.
+LDFLAG := -I../lib
+SRC := jour_lendemain.c
+OBJ := $(SRC:.c=.o)
+BINDIR := /tmp/
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAG) $(LDFLAG) $? ../lib/libdate.so ../lib/libaffichage.so -o $@
+
+%.o: %.c
+	$(CC) $(CFLAG) $(LDFLAG) -c $<
+
+clean:
+	@rm -f *.o $(TARGET)
+
+install:
+	mkdir -p $(BINDIR)
+	cp $(TARGET) $(BINDIR)
+
+.PHONY: clean install

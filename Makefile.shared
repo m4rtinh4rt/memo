@@ -1,0 +1,21 @@
+LIB1 := libdate.so
+LIB2 := libaffichage.so
+CC := gcc
+CFLAG := -Wall -Wextra -ansi -pedantic -Werror -pie -fPIC -DFORTIFY_SOURCE=2 -O1 -fstack-protector-all -Wformat=2 -Wformat-security -Werror=format-security -Wl,-z,relro -Wl,-z,now -I.
+SRC := bissextile.c nbjours.c lecture.c
+
+all: $(LIB1) $(LIB2)
+
+$(LIB1): bissextile.o nbjours.o validite.o
+	$(CC) -shared $? -o $@
+
+$(LIB2): lecture.o
+	$(CC) -shared $? -o $@
+
+%.o: %.c
+	$(CC) $(CFLAG) -c $<
+
+clean:
+	@rm -f $(LIB1) $(LIB2) *.o
+
+.PHONY: clean

@@ -1,0 +1,10 @@
+BINDIR = /tmp
+
+all clean:
+	(cd lib; $(MAKE) $@)
+	(cd src; $(MAKE) $@)
+
+install:
+	(cd src; $(MAKE) BINDIR=$(BINDIR) $@)
+
+.PHONY: all install
