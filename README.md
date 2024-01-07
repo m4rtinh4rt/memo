@@ -15,17 +15,17 @@ LDFLAGS=-Wl,-z,relro -Wl,-z,now
 
 ## Rules
 
-EXP34-C. Do not dereference null pointers
-EXP12-C: Do not ignore values returned by functions
+- EXP34-C. Do not dereference null pointers
+- EXP12-C: Do not ignore values returned by functions
 
-MEM35-C: Allocate sufficient memory for an object
-MEM31-C: Free dynamically allocated memory when no longer needed
+- MEM35-C: Allocate sufficient memory for an object
+- MEM31-C: Free dynamically allocated memory when no longer needed
 
-MSC24-C: Do not use deprecated or obsolescent functions
-ERR30-C. Set errno to zero before calling a library function
+- MSC24-C: Do not use deprecated or obsolescent functions
+- ERR30-C. Set errno to zero before calling a library function
 
-INT02-C: Understand integer conversion rules
+- INT02-C: Understand integer conversion rules
 
-CON43-C: Do not allow data races in multithreaded code
-CON34-C: Declare objects shared between threads with appropriate storage durations
-CON35-C: Avoid deadlock by locking in a predefined order
+- CON43-C: Do not allow data races in multithreaded code
+- CON34-C: Declare objects shared between threads with appropriate storage durations
+- CON35-C: Avoid deadlock by locking in a predefined order
