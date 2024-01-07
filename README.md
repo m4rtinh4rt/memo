@@ -32,7 +32,6 @@ LDFLAGS=-Wl,-z,relro -Wl,-z,now
 
 # Client.py
 
-python
 ```
 #!/usr/bin/env python
 
